@@ -7,3 +7,9 @@
 .main {
   padding-bottom: 2rem;
 }
+
+@media (max-width: 768px) {
+  .main {
+    padding-bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px));
+  }
+}
