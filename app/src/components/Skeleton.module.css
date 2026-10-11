@@ -1,0 +1,76 @@
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+
+.poster {
+  width: 8.5rem;
+  min-width: 8.5rem;
+  aspect-ratio: 2 / 3;
+  border-radius: 0.45rem;
+}
+
+.widePoster {
+  width: 11rem;
+  min-width: 11rem;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.45rem;
+}
+
+.line {
+  height: 0.65rem;
+  border-radius: 999px;
+  margin-top: 0.45rem;
+}
+
+.lineShort {
+  width: 55%;
+}
+
+.lineFull {
+  width: 85%;
+}
+
+.heroBlock {
+  width: 100%;
+  min-height: 20rem;
+  border-radius: 0;
+}
+
+.rowTitle {
+  width: 8rem;
+  height: 1rem;
+  margin: 0 0 0.85rem 1.5rem;
+}
+
+.shelf {
+  padding: 0 0 1.5rem;
+}
+
+.scroller {
+  display: flex;
+  gap: 0.65rem;
+  padding: 0 1.5rem;
+  overflow: hidden;
+}
+
+.cardStack {
+  display: flex;
+  flex-direction: column;
+}

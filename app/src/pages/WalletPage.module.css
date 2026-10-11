@@ -14,8 +14,14 @@
   margin: 0 0 1rem;
 }
 
-.empty {
-  color: rgba(255, 255, 255, 0.6);
+.cta {
+  display: inline-flex;
+  padding: 0.55rem 1rem;
+  border-radius: 0.55rem;
+  background: #e50914;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .list {

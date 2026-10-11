@@ -33,11 +33,12 @@ npm run preview
 
 | Area | Route | What it does |
 |------|--------|----------------|
-| Home | `/` | Featured hero, trending row, launch campaign CTA |
+| Home | `/` | Netflix-style **hero**, **Continue watching**, trending & **genre shelves** |
 | Trending | `/trending` | **Daily / Weekly** tabs + **genre** chips |
+| Saved | `/library` | Titles saved from the watch screen (localStorage) |
 | Founding Fan | `/founding-fan` | Join campaign, **wallet welcome credit**, **badges** |
 | Wallet | `/wallet` | Local **ledger** (demo credits / tips) |
-| Watch | `/watch/:id` | Title detail + demo player + tip creator |
+| Watch | `/watch/:id` | Title detail + demo player + **save to list** + tip creator |
 
 Wallet state is stored in `localStorage` only — no backend in this public seed.
 

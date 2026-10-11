@@ -1,5 +1,9 @@
+.page {
+  padding-bottom: 0.5rem;
+}
+
 .campaign {
-  margin: 0 1.5rem 1.25rem;
+  margin: -0.5rem 1.5rem 1.25rem;
   padding: 1rem 1.1rem;
   border-radius: 0.85rem;
   display: flex;
@@ -39,9 +43,43 @@
   font-weight: 600;
 }
 
+.inlineEmpty {
+  padding: 0 1.5rem 1rem;
+}
+
+.seeAll {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+}
+
+.seeAll:hover {
+  color: #fff;
+}
+
+.linkBtn {
+  display: inline-flex;
+  padding: 0.5rem 0.95rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
 @media (max-width: 720px) {
   .campaign {
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .inlineEmpty {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
