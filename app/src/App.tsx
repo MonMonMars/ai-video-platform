@@ -4,6 +4,7 @@ import { FoundingFanPage } from './pages/FoundingFanPage'
 import { HomePage } from './pages/HomePage'
 import { TrendingPage } from './pages/TrendingPage'
 import { WalletPage } from './pages/WalletPage'
+import { SettingsPage } from './pages/SettingsPage'
 import { WatchPage } from './pages/WatchPage'
 import styles from './App.module.css'
 
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/trending" element={<TrendingPage />} />
           <Route path="/founding-fan" element={<FoundingFanPage />} />
           <Route path="/wallet" element={<WalletPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
           <Route path="/watch/:id" element={<WatchPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

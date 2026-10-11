@@ -6,9 +6,15 @@ interface ContentRowProps {
   heading: string
   titles: VideoTitle[]
   ranked?: boolean
+  hideMembershipBadge?: boolean
 }
 
-export function ContentRow({ heading, titles, ranked = false }: ContentRowProps) {
+export function ContentRow({
+  heading,
+  titles,
+  ranked = false,
+  hideMembershipBadge = false,
+}: ContentRowProps) {
   if (titles.length === 0) return null
 
   return (
@@ -16,7 +22,12 @@ export function ContentRow({ heading, titles, ranked = false }: ContentRowProps)
       <h2>{heading}</h2>
       <div className={styles.scroller}>
         {titles.map((title, index) => (
-          <VideoCard key={title.id} title={title} rank={ranked ? index + 1 : undefined} />
+          <VideoCard
+            key={title.id}
+            title={title}
+            rank={ranked ? index + 1 : undefined}
+            hideMembershipBadge={hideMembershipBadge}
+          />
         ))}
       </div>
     </section>

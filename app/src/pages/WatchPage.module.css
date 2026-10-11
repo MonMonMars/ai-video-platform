@@ -77,5 +77,18 @@
 }
 
 .back {
+  display: inline-block;
+  margin-right: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.blocked {
+  max-width: 32rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.autoplayNote {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.75);
 }

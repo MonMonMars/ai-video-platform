@@ -84,6 +84,15 @@
   color: #fecdd3;
 }
 
+.pillKid {
+  font-size: 0.72rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  background: rgba(34, 197, 94, 0.12);
+  color: #bbf7d0;
+}
+
 .pillMuted {
   color: rgba(255, 255, 255, 0.55);
 }

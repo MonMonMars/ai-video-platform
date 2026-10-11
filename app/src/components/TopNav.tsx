@@ -1,18 +1,23 @@
 import { NavLink } from 'react-router-dom'
+import { useSettings } from '../context/SettingsContext'
 import { useWallet } from '../context/WalletContext'
+import { AccountMenu } from './AccountMenu'
 import styles from './TopNav.module.css'
 
-type NavLinkItem = { to: string; label: string; end?: boolean }
+type NavLinkItem = { to: string; label: string; end?: boolean; hideInKidMode?: boolean }
 
 const links: NavLinkItem[] = [
   { to: '/', label: 'Home', end: true },
   { to: '/trending', label: 'Trending' },
-  { to: '/founding-fan', label: 'Founding Fan' },
-  { to: '/wallet', label: 'Wallet' },
+  { to: '/founding-fan', label: 'Founding Fan', hideInKidMode: true },
+  { to: '/wallet', label: 'Wallet', hideInKidMode: true },
 ]
 
 export function TopNav() {
   const { balance, isFoundingFan } = useWallet()
+  const { kidMode } = useSettings()
+
+  const visibleLinks = links.filter((link) => !(kidMode && link.hideInKidMode))
 
   return (
     <header className={styles.header}>
@@ -24,7 +29,7 @@ export function TopNav() {
         </div>
       </div>
       <nav className={styles.nav} aria-label="Primary">
-        {links.map((link) => (
+        {visibleLinks.map((link) => (
           <NavLink
             key={link.to}
             to={link.to}
@@ -38,14 +43,17 @@ export function TopNav() {
         ))}
       </nav>
       <div className={styles.meta}>
-        {isFoundingFan ? (
+        {kidMode ? <span className={styles.pillKid}>Kid Mode</span> : null}
+        {!kidMode && isFoundingFan ? (
           <span className={styles.pill}>Founding Fan</span>
-        ) : (
-          <span className={styles.pillMuted}>Viewer</span>
-        )}
-        <span className={styles.balance} aria-label="Wallet balance">
-          ${balance.toFixed(2)}
-        </span>
+        ) : null}
+        {!kidMode && !isFoundingFan ? <span className={styles.pillMuted}>Viewer</span> : null}
+        {!kidMode ? (
+          <span className={styles.balance} aria-label="Wallet balance">
+            ${balance.toFixed(2)}
+          </span>
+        ) : null}
+        <AccountMenu />
       </div>
     </header>
   )

@@ -19,6 +19,8 @@ export interface VideoTitle {
   trendingScoreDaily: number
   trendingScoreWeekly: number
   foundingFanExclusive?: boolean
+  /** When true, hidden while Kid Mode is on */
+  matureContent?: boolean
   accent: string
 }
 
