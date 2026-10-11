@@ -56,3 +56,67 @@
   color: #fca5a5;
   font-weight: 600;
 }
+
+.panel {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.panel h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.panelHint {
+  margin: 0 0 0.75rem;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.panelHint a {
+  color: #93c5fd;
+}
+
+.packs {
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.packs li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.65rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.packs li div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.packs li span {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.packBtn {
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  background: #2563eb;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
