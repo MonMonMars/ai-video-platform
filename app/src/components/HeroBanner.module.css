@@ -1,0 +1,77 @@
+.hero {
+  position: relative;
+  min-height: 22rem;
+  margin: 0 0 1.25rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 8, 12, 0.95) 0%,
+    rgba(8, 8, 12, 0.55) 45%,
+    rgba(8, 8, 12, 0.2) 100%
+  );
+}
+
+.content {
+  position: relative;
+  max-width: 36rem;
+  padding: 3.5rem 1.5rem 2rem;
+}
+
+.kicker {
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.content h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+.logline {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.meta {
+  margin: 0 0 1.1rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.15rem;
+  border-radius: 0.55rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.primary {
+  background: #fff;
+  color: #111;
+}
+
+.secondary {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+}

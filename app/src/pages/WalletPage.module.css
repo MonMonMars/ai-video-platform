@@ -1,0 +1,58 @@
+.page {
+  padding: 1.5rem;
+  max-width: 42rem;
+}
+
+.page header p {
+  margin: 0.35rem 0 1rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.balance {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.empty {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.list li div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.list li span {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.credit {
+  color: #86efac;
+  font-weight: 600;
+}
+
+.debit {
+  color: #fca5a5;
+  font-weight: 600;
+}

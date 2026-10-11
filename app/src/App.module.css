@@ -1,0 +1,9 @@
+.shell {
+  min-height: 100vh;
+  background: #08080c;
+  color: #f8fafc;
+}
+
+.main {
+  padding-bottom: 2rem;
+}

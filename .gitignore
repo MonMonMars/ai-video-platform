@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+app/dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs & debug
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# PWA dev artifacts
+dev-dist/
+sw.js
+workbox-*.js
+
+# Large local demo media (optional — add files under app/public/media/)
+app/public/media/*.mp4
+app/public/media/*.mov
+app/public/media/*.webm

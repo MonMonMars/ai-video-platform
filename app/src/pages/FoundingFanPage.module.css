@@ -1,0 +1,90 @@
+.page {
+  padding: 1.5rem;
+  max-width: 48rem;
+}
+
+.kicker {
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.page h1 {
+  margin: 0 0 0.35rem;
+}
+
+.page > header > p {
+  margin: 0 0 1.25rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.panel {
+  margin-bottom: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.panel h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+}
+
+.status {
+  margin: 0;
+  color: #bbf7d0;
+}
+
+.cta {
+  margin-top: 0.65rem;
+  border: 0;
+  border-radius: 0.55rem;
+  padding: 0.65rem 1rem;
+  background: #e11d48;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.balance {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.badges {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.badges li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.badgeEarned {
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.badgeLocked {
+  opacity: 0.75;
+}
+
+.badgeTitle {
+  font-weight: 600;
+}
+
+.badgeState {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+}
