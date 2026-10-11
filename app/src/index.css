@@ -10,10 +10,25 @@
   font-weight: 400;
   color: #f8fafc;
   background-color: #08080c;
+  --surface-elevated: #14141c;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme='light'] {
+  color: #0f172a;
+  background-color: #f1f5f9;
+  --surface-elevated: #ffffff;
+}
+
+:root[data-theme='light'] body {
+  background: #f1f5f9;
+}
+
+:root[data-theme='light'] code {
+  background: rgba(15, 23, 42, 0.06);
 }
 
 *,

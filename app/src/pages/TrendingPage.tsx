@@ -2,7 +2,9 @@ import { useMemo, useState } from 'react'
 import type { Genre, TrendingWindow } from '../types/catalog'
 import { GENRE_LABELS } from '../data/catalog'
 import { sortTrending } from '../lib/trending'
+import { filterTitlesForKidMode } from '../lib/kidMode'
 import { VideoCard } from '../components/VideoCard'
+import { useSettings } from '../context/SettingsContext'
 import styles from './TrendingPage.module.css'
 
 const genres: Array<Genre | 'all'> = [
@@ -23,8 +25,12 @@ function genreLabel(genre: Genre | 'all'): string {
 export function TrendingPage() {
   const [window, setWindow] = useState<TrendingWindow>('daily')
   const [genre, setGenre] = useState<Genre | 'all'>('all')
+  const { kidMode } = useSettings()
 
-  const titles = useMemo(() => sortTrending(window, genre), [window, genre])
+  const titles = useMemo(() => {
+    const sorted = sortTrending(window, genre)
+    return filterTitlesForKidMode(sorted, kidMode)
+  }, [window, genre, kidMode])
 
   return (
     <div className={styles.page}>
@@ -63,7 +69,12 @@ export function TrendingPage() {
 
       <div className={styles.grid}>
         {titles.map((title, index) => (
-          <VideoCard key={title.id} title={title} rank={index + 1} />
+          <VideoCard
+            key={title.id}
+            title={title}
+            rank={index + 1}
+            hideMembershipBadge={kidMode}
+          />
         ))}
       </div>
     </div>

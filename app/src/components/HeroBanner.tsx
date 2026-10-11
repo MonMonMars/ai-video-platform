@@ -5,9 +5,10 @@ import styles from './HeroBanner.module.css'
 
 interface HeroBannerProps {
   featured: VideoTitle
+  hideMembershipCta?: boolean
 }
 
-export function HeroBanner({ featured }: HeroBannerProps) {
+export function HeroBanner({ featured, hideMembershipCta = false }: HeroBannerProps) {
   return (
     <section className={styles.hero} style={{ backgroundImage: featured.accent }}>
       <div className={styles.overlay} />
@@ -23,9 +24,11 @@ export function HeroBanner({ featured }: HeroBannerProps) {
           <Link to={`/watch/${featured.id}`} className={styles.primary}>
             Play
           </Link>
-          <Link to="/founding-fan" className={styles.secondary}>
-            Founding Fan perks
-          </Link>
+          {hideMembershipCta ? null : (
+            <Link to="/founding-fan" className={styles.secondary}>
+              Founding Fan perks
+            </Link>
+          )}
         </div>
       </div>
     </section>

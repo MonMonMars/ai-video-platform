@@ -1,0 +1,73 @@
+.wrap {
+  position: relative;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.2rem 0.35rem 0.2rem 0.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  cursor: pointer;
+}
+
+.trigger:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+}
+
+.chevron {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.55);
+  padding-right: 0.25rem;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  min-width: 11rem;
+  padding: 0.35rem;
+  border-radius: 0.65rem;
+  background: var(--surface-elevated, #14141c);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  z-index: 30;
+}
+
+.menuItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.45rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.menuHint {
+  padding: 0.35rem 0.65rem 0.2rem;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.5);
+}

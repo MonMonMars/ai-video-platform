@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom'
 import { FOUNDING_BADGES } from '../data/badges'
+import { useSettings } from '../context/SettingsContext'
 import { useWallet } from '../context/WalletContext'
 import styles from './FoundingFanPage.module.css'
 
 export function FoundingFanPage() {
   const { isFoundingFan, badgeIds, joinCampaign, balance } = useWallet()
+  const { kidMode } = useSettings()
 
   return (
     <div className={styles.page}>
@@ -18,7 +21,17 @@ export function FoundingFanPage() {
 
       <section className={styles.panel}>
         <h2>Membership</h2>
-        {isFoundingFan ? (
+        {kidMode ? (
+          <>
+            <p className={styles.status}>
+              Membership offers are hidden while Kid Mode is on. A parent or guardian can manage this
+              in Settings.
+            </p>
+            <Link to="/settings" className={styles.ctaLink}>
+              Open Settings
+            </Link>
+          </>
+        ) : isFoundingFan ? (
           <p className={styles.status}>You are in — welcome credit applied to your wallet.</p>
         ) : (
           <>
@@ -28,7 +41,7 @@ export function FoundingFanPage() {
             </button>
           </>
         )}
-        <p className={styles.balance}>Wallet balance: ${balance.toFixed(2)}</p>
+        {!kidMode ? <p className={styles.balance}>Wallet balance: ${balance.toFixed(2)}</p> : null}
       </section>
 
       <section className={styles.panel}>

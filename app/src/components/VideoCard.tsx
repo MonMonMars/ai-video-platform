@@ -6,14 +6,15 @@ import styles from './VideoCard.module.css'
 interface VideoCardProps {
   title: VideoTitle
   rank?: number
+  hideMembershipBadge?: boolean
 }
 
-export function VideoCard({ title, rank }: VideoCardProps) {
+export function VideoCard({ title, rank, hideMembershipBadge = false }: VideoCardProps) {
   return (
     <Link to={`/watch/${title.id}`} className={styles.card}>
       <div className={styles.thumb} style={{ background: title.accent }}>
         {rank !== undefined ? <span className={styles.rank}>{rank}</span> : null}
-        {title.foundingFanExclusive ? (
+        {!hideMembershipBadge && title.foundingFanExclusive ? (
           <span className={styles.badge}>Fan exclusive</span>
         ) : null}
       </div>
