@@ -1,4 +1,7 @@
+import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { SaveActions } from '../components/SaveActions'
+import { useLibrary } from '../context/LibraryContext'
 import { GENRE_LABELS, getTitle } from '../data/catalog'
 import { useWallet } from '../context/WalletContext'
 import styles from './WatchPage.module.css'
@@ -7,6 +10,12 @@ export function WatchPage() {
   const { id } = useParams<{ id: string }>()
   const title = id ? getTitle(id) : undefined
   const { balance, tip } = useWallet()
+  const { trackProgress } = useLibrary()
+
+  useEffect(() => {
+    if (!title) return
+    trackProgress(title.id)
+  }, [title?.id, trackProgress])
 
   if (!title) {
     return (
@@ -35,6 +44,7 @@ export function WatchPage() {
         <p className={styles.meta}>
           {GENRE_LABELS[title.genre]} · {title.durationMinutes} min · by {title.creator}
         </p>
+        <SaveActions titleId={title.id} className={styles.saveRow} />
         <div className={styles.tipRow}>
           <button
             type="button"
