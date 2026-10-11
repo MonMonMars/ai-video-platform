@@ -4,16 +4,21 @@ export const FOUNDING_BADGES: FoundingBadge[] = [
   {
     id: 'early-bird',
     label: 'Early Bird',
-    description: 'Joined during the private preview window.',
+    description: 'Joined the waitlist before public launch.',
   },
   {
     id: 'launch-crew',
     label: 'Launch Crew',
-    description: 'Backed the public Founding Fan campaign.',
+    description: 'Joined the Founding Fan campaign.',
   },
   {
     id: 'patron',
     label: 'Patron',
-    description: 'Tipped creators from your platform wallet.',
+    description: 'Sent a tip to a creator from the watch page.',
+  },
+  {
+    id: 'member',
+    label: 'Channel Member',
+    description: 'Subscribed to a creator channel (demo membership).',
   },
 ]

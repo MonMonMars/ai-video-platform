@@ -1,0 +1,144 @@
+.page {
+  padding: 0 1.5rem 2rem;
+  max-width: 52rem;
+}
+
+.hero {
+  margin: 0 -1.5rem 1.25rem;
+  padding: 2rem 1.5rem;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.heroInner {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.kicker {
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.hero h1 {
+  margin: 0;
+}
+
+.handle {
+  margin: 0.25rem 0;
+  opacity: 0.85;
+}
+
+.tagline {
+  margin: 0.5rem 0 0;
+  max-width: 36rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.panel {
+  padding: 1rem 1.1rem;
+  border-radius: 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.panel h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+}
+
+.status {
+  margin: 0;
+  color: #bbf7d0;
+}
+
+.price {
+  margin: 0 0 0.65rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.cta {
+  border: 0;
+  border-radius: 0.55rem;
+  padding: 0.65rem 1rem;
+  background: #e11d48;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hint {
+  margin: 0.65rem 0 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.perks {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: rgba(255, 255, 255, 0.78);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.catalog {
+  margin-top: 1.25rem;
+}
+
+.catalog h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+}
+
+.episodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.episodes li {
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.episodeLink {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  text-decoration: none;
+}
+
+.epLabel {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.epName {
+  font-weight: 600;
+}
+
+.epPrice {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+}

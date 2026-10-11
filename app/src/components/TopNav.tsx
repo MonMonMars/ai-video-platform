@@ -7,6 +7,8 @@ type NavLinkItem = { to: string; label: string; end?: boolean }
 const links: NavLinkItem[] = [
   { to: '/', label: 'Home', end: true },
   { to: '/trending', label: 'Trending' },
+  { to: '/creator/mon-mon', label: 'Creators' },
+  { to: '/studio', label: 'Studio' },
   { to: '/founding-fan', label: 'Founding Fan' },
   { to: '/wallet', label: 'Wallet' },
 ]

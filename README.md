@@ -36,10 +36,12 @@ npm run preview
 | Home | `/` | Featured hero, trending row, launch campaign CTA |
 | Trending | `/trending` | **Daily / Weekly** tabs + **genre** chips |
 | Founding Fan | `/founding-fan` | Join campaign, **wallet welcome credit**, **badges** |
-| Wallet | `/wallet` | Local **ledger** (demo credits / tips) |
-| Watch | `/watch/:id` | Title detail + demo player + tip creator |
+| Wallet | `/wallet` | Local **ledger**, **top-up packs**, purchases |
+| Creator channel | `/creator/:channelId` | **Subscribe**, perks, episode catalog |
+| Studio | `/studio` | Set **prices**, publish episodes, **earnings** (demo) |
+| Watch | `/watch/:id` | Preview → **paywall**, unlock, tips, **comments** |
 
-Wallet state is stored in `localStorage` only — no backend in this public seed.
+Wallet, unlocks, memberships, and studio settings are stored in `localStorage` only — no backend or real payments in this public seed.
 
 ## Demo video files
 
