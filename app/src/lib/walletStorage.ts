@@ -9,6 +9,8 @@ export interface WalletState {
   ledger: WalletEntry[]
   badgeIds: FoundingBadgeId[]
   isFoundingFan: boolean
+  /** Platform member (demo flag; set when joining Founding Fan). */
+  isMember: boolean
 }
 
 function readJson<T>(key: string, fallback: T): T {
@@ -26,7 +28,8 @@ export function loadWalletState(): WalletState {
   const ledger = readJson<WalletEntry[]>(`${WALLET_KEY}.ledger`, [])
   const badgeIds = readJson<FoundingBadgeId[]>(BADGES_KEY, [])
   const isFoundingFan = readJson<boolean>(FOUNDING_KEY, false)
-  return { balance, ledger, badgeIds, isFoundingFan }
+  const isMember = readJson<boolean>(`${FOUNDING_KEY}.member`, isFoundingFan)
+  return { balance, ledger, badgeIds, isFoundingFan, isMember }
 }
 
 export function saveWalletState(state: WalletState): void {
@@ -34,6 +37,7 @@ export function saveWalletState(state: WalletState): void {
   localStorage.setItem(`${WALLET_KEY}.ledger`, JSON.stringify(state.ledger))
   localStorage.setItem(BADGES_KEY, JSON.stringify(state.badgeIds))
   localStorage.setItem(FOUNDING_KEY, JSON.stringify(state.isFoundingFan))
+  localStorage.setItem(`${FOUNDING_KEY}.member`, JSON.stringify(state.isMember))
 }
 
 export function appendLedgerEntry(
@@ -66,6 +70,7 @@ export function joinFoundingFan(state: WalletState): WalletState {
   next = {
     ...next,
     isFoundingFan: true,
+    isMember: true,
     badgeIds: next.badgeIds.includes('launch-crew')
       ? next.badgeIds
       : [...next.badgeIds, 'launch-crew'],
@@ -86,4 +91,26 @@ export function tipCreator(state: WalletState, amount: number, creator: string):
     saveWalletState(next)
   }
   return next
+}
+
+export function tipCommentAuthor(
+  state: WalletState,
+  amount: number,
+  authorName: string,
+): WalletState {
+  if (amount <= 0 || state.balance < amount) return state
+  let next = appendLedgerEntry(state, {
+    kind: 'debit',
+    amount: -amount,
+    label: `Tip to ${authorName} (comment)`,
+  })
+  if (!next.badgeIds.includes('patron')) {
+    next = { ...next, badgeIds: [...next.badgeIds, 'patron'] }
+    saveWalletState(next)
+  }
+  return next
+}
+
+export function hasWalletActivity(state: WalletState): boolean {
+  return state.balance > 0 || state.ledger.length > 0 || state.isFoundingFan
 }

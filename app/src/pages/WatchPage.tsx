@@ -1,4 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
+import { CommentsSection } from '../components/CommentsSection'
+import { ShareButton } from '../components/ShareButton'
 import { GENRE_LABELS, getTitle } from '../data/catalog'
 import { useWallet } from '../context/WalletContext'
 import styles from './WatchPage.module.css'
@@ -6,7 +8,7 @@ import styles from './WatchPage.module.css'
 export function WatchPage() {
   const { id } = useParams<{ id: string }>()
   const title = id ? getTitle(id) : undefined
-  const { balance, tip } = useWallet()
+  const { balance, walletReady } = useWallet()
 
   if (!title) {
     return (
@@ -35,21 +37,21 @@ export function WatchPage() {
         <p className={styles.meta}>
           {GENRE_LABELS[title.genre]} · {title.durationMinutes} min · by {title.creator}
         </p>
-        <div className={styles.tipRow}>
-          <button
-            type="button"
-            className={styles.tip}
-            disabled={balance < 5}
-            onClick={() => tip(5, title.creator)}
-          >
-            Tip $5
-          </button>
-          <span className={styles.tipHint}>Wallet: ${balance.toFixed(2)}</span>
+        <div className={styles.actionRow}>
+          <ShareButton titleId={title.id} titleName={title.name} />
+          {walletReady ? (
+            <span className={styles.tipHint}>Wallet: ${balance.toFixed(2)}</span>
+          ) : (
+            <Link to="/founding-fan" className={styles.walletCta}>
+              Load wallet to tip in comments
+            </Link>
+          )}
         </div>
         <Link to="/" className={styles.back}>
           ← Back to browse
         </Link>
       </div>
+      <CommentsSection titleId={title.id} creatorName={title.creator} />
     </div>
   )
 }

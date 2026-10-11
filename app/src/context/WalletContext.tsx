@@ -7,8 +7,10 @@ import {
   type ReactNode,
 } from 'react'
 import {
+  hasWalletActivity,
   joinFoundingFan,
   loadWalletState,
+  tipCommentAuthor,
   tipCreator,
   type WalletState,
 } from '../lib/walletStorage'
@@ -16,6 +18,8 @@ import {
 interface WalletContextValue extends WalletState {
   joinCampaign: () => void
   tip: (amount: number, creator: string) => void
+  tipComment: (amount: number, authorName: string) => void
+  walletReady: boolean
   refresh: () => void
 }
 
@@ -36,14 +40,22 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     setState((prev) => tipCreator(prev, amount, creator))
   }, [])
 
+  const tipComment = useCallback((amount: number, authorName: string) => {
+    setState((prev) => tipCommentAuthor(prev, amount, authorName))
+  }, [])
+
+  const walletReady = useMemo(() => hasWalletActivity(state), [state])
+
   const value = useMemo(
     () => ({
       ...state,
       joinCampaign,
       tip,
+      tipComment,
+      walletReady,
       refresh,
     }),
-    [state, joinCampaign, tip, refresh],
+    [state, joinCampaign, tip, tipComment, walletReady, refresh],
   )
 
   return <WalletContext.Provider value={value}>{children}</WalletContext.Provider>

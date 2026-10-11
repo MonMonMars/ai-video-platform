@@ -30,6 +30,11 @@ export interface WalletEntry {
   label: string
 }
 
+export interface AuthorBadgeFlags {
+  isMember: boolean
+  isFoundingFan: boolean
+}
+
 export type FoundingBadgeId = 'early-bird' | 'launch-crew' | 'patron'
 
 export interface FoundingBadge {
