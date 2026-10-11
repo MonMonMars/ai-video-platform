@@ -1,0 +1,73 @@
+.page {
+  padding: 0 0 1rem;
+}
+
+.header {
+  padding: 1.25rem 1.5rem 0.5rem;
+}
+
+.header h1 {
+  margin: 0 0 0.35rem;
+}
+
+.header p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.92rem;
+  max-width: 32rem;
+}
+
+.cta {
+  display: inline-flex;
+  padding: 0.55rem 1rem;
+  border-radius: 0.55rem;
+  background: #e50914;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.manage {
+  list-style: none;
+  margin: 0;
+  padding: 0 1.5rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.manage li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.55rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.manage a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.manage button {
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.manage button:hover {
+  color: #fca5a5;
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

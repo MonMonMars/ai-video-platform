@@ -1,0 +1,70 @@
+.row {
+  padding: 0 0 1.35rem;
+  position: relative;
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0 1.5rem 0.65rem;
+}
+
+.head h2 {
+  margin: 0;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.scrollerWrap {
+  position: relative;
+}
+
+.scrollerWrap::before,
+.scrollerWrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0.35rem;
+  width: 2.5rem;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.scrollerWrap::before {
+  left: 0;
+  background: linear-gradient(90deg, #08080c 0%, transparent 100%);
+}
+
+.scrollerWrap::after {
+  right: 0;
+  background: linear-gradient(270deg, #08080c 0%, transparent 100%);
+}
+
+.scroller {
+  display: flex;
+  gap: 0.55rem;
+  overflow-x: auto;
+  padding: 0.25rem 1.5rem 0.5rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .head {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .scroller {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

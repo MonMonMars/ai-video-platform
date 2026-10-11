@@ -1,0 +1,34 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: 1rem;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.85;
+}
+
+.wrap h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.wrap p {
+  margin: 0;
+  max-width: 22rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.action {
+  margin-top: 1.1rem;
+}

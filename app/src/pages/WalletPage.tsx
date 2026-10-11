@@ -1,8 +1,24 @@
+import { Link } from 'react-router-dom'
 import { useWallet } from '../context/WalletContext'
+import { EmptyState } from '../components/EmptyState'
+import { WalletSkeleton } from '../components/WalletSkeleton'
+import { usePageReady } from '../hooks/usePageReady'
 import styles from './WalletPage.module.css'
 
 export function WalletPage() {
+  const ready = usePageReady()
   const { ledger, balance } = useWallet()
+
+  if (!ready) {
+    return (
+      <div className={styles.page}>
+        <header>
+          <h1>Wallet ledger</h1>
+        </header>
+        <WalletSkeleton />
+      </div>
+    )
+  }
 
   return (
     <div className={styles.page}>
@@ -12,7 +28,16 @@ export function WalletPage() {
       </header>
       <p className={styles.balance}>Balance: ${balance.toFixed(2)}</p>
       {ledger.length === 0 ? (
-        <p className={styles.empty}>No transactions yet. Join Founding Fan to receive a bonus.</p>
+        <EmptyState
+          title="No transactions yet"
+          description="Join the Founding Fan campaign to receive a welcome credit, or tip a creator while watching."
+          icon={<span aria-hidden>◈</span>}
+          action={
+            <Link to="/founding-fan" className={styles.cta}>
+              Founding Fan
+            </Link>
+          }
+        />
       ) : (
         <ul className={styles.list}>
           {ledger.map((entry) => (

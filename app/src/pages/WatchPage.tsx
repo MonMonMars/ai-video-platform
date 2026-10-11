@@ -1,5 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { GENRE_LABELS, getTitle } from '../data/catalog'
+import { isSaved, recordWatchProgress, toggleSaved } from '../lib/watchHistory'
 import { useWallet } from '../context/WalletContext'
 import styles from './WatchPage.module.css'
 
@@ -7,6 +9,15 @@ export function WatchPage() {
   const { id } = useParams<{ id: string }>()
   const title = id ? getTitle(id) : undefined
   const { balance, tip } = useWallet()
+  const [saved, setSaved] = useState(false)
+
+  useEffect(() => {
+    if (!id) return
+    const resolved = getTitle(id)
+    if (!resolved) return
+    setSaved(isSaved(resolved.id))
+    recordWatchProgress(resolved.id, 18 + (resolved.durationMinutes % 47))
+  }, [id])
 
   if (!title) {
     return (
@@ -35,16 +46,25 @@ export function WatchPage() {
         <p className={styles.meta}>
           {GENRE_LABELS[title.genre]} · {title.durationMinutes} min · by {title.creator}
         </p>
-        <div className={styles.tipRow}>
+        <div className={styles.actionRow}>
           <button
             type="button"
-            className={styles.tip}
-            disabled={balance < 5}
-            onClick={() => tip(5, title.creator)}
+            className={saved ? styles.saved : styles.save}
+            onClick={() => setSaved(toggleSaved(title.id))}
           >
-            Tip $5
+            {saved ? 'Saved ★' : 'Save to list'}
           </button>
-          <span className={styles.tipHint}>Wallet: ${balance.toFixed(2)}</span>
+          <div className={styles.tipRow}>
+            <button
+              type="button"
+              className={styles.tip}
+              disabled={balance < 5}
+              onClick={() => tip(5, title.creator)}
+            >
+              Tip $5
+            </button>
+            <span className={styles.tipHint}>Wallet: ${balance.toFixed(2)}</span>
+          </div>
         </div>
         <Link to="/" className={styles.back}>
           ← Back to browse

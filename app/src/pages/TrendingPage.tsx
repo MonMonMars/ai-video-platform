@@ -2,7 +2,10 @@ import { useMemo, useState } from 'react'
 import type { Genre, TrendingWindow } from '../types/catalog'
 import { GENRE_LABELS } from '../data/catalog'
 import { sortTrending } from '../lib/trending'
-import { VideoCard } from '../components/VideoCard'
+import { EmptyState } from '../components/EmptyState'
+import { PosterCard } from '../components/PosterCard'
+import { TrendingSkeleton } from '../components/TrendingSkeleton'
+import { usePageReady } from '../hooks/usePageReady'
 import styles from './TrendingPage.module.css'
 
 const genres: Array<Genre | 'all'> = [
@@ -21,10 +24,22 @@ function genreLabel(genre: Genre | 'all'): string {
 }
 
 export function TrendingPage() {
+  const ready = usePageReady()
   const [window, setWindow] = useState<TrendingWindow>('daily')
   const [genre, setGenre] = useState<Genre | 'all'>('all')
 
   const titles = useMemo(() => sortTrending(window, genre), [window, genre])
+
+  if (!ready) {
+    return (
+      <div className={styles.page}>
+        <header className={styles.header}>
+          <h1>Trending</h1>
+        </header>
+        <TrendingSkeleton />
+      </div>
+    )
+  }
 
   return (
     <div className={styles.page}>
@@ -61,11 +76,19 @@ export function TrendingPage() {
         ))}
       </div>
 
-      <div className={styles.grid}>
-        {titles.map((title, index) => (
-          <VideoCard key={title.id} title={title} rank={index + 1} />
-        ))}
-      </div>
+      {titles.length === 0 ? (
+        <EmptyState
+          title="No titles in this chart"
+          description="Try another genre or switch between daily and weekly windows."
+          icon={<span aria-hidden>▲</span>}
+        />
+      ) : (
+        <div className={styles.grid}>
+          {titles.map((title, index) => (
+            <PosterCard key={title.id} title={title} rank={index + 1} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

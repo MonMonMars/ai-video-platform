@@ -1,52 +1,69 @@
 .hero {
   position: relative;
-  min-height: 22rem;
-  margin: 0 0 1.25rem;
+  min-height: clamp(18rem, 52vw, 28rem);
+  margin: 0 0 0.5rem;
   background-size: cover;
-  background-position: center;
+  background-position: center top;
 }
 
 .overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
+    0deg,
+    #08080c 0%,
+    rgba(8, 8, 12, 0.35) 35%,
+    rgba(8, 8, 12, 0.15) 100%
+  );
+}
+
+.overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
     90deg,
-    rgba(8, 8, 12, 0.95) 0%,
-    rgba(8, 8, 12, 0.55) 45%,
-    rgba(8, 8, 12, 0.2) 100%
+    rgba(8, 8, 12, 0.92) 0%,
+    rgba(8, 8, 12, 0.45) 42%,
+    transparent 72%
   );
 }
 
 .content {
   position: relative;
-  max-width: 36rem;
-  padding: 3.5rem 1.5rem 2rem;
+  max-width: 38rem;
+  padding: clamp(4rem, 12vw, 7rem) 1.5rem 2.5rem;
+  z-index: 1;
 }
 
 .kicker {
   margin: 0 0 0.35rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+  color: #e50914;
 }
 
 .content h1 {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.05;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.02;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.55);
 }
 
 .logline {
-  margin: 0.75rem 0 0.35rem;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.82);
+  margin: 0.85rem 0 0.35rem;
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.45;
+  max-width: 32rem;
 }
 
 .meta {
-  margin: 0 0 1.1rem;
+  margin: 0 0 1.25rem;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.58);
 }
 
 .actions {
@@ -56,14 +73,23 @@
 }
 
 .primary,
-.secondary {
+.secondary,
+.ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 1.15rem;
-  border-radius: 0.55rem;
-  font-weight: 600;
+  padding: 0.7rem 1.35rem;
+  border-radius: 0.4rem;
+  font-weight: 700;
+  font-size: 0.95rem;
   text-decoration: none;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.primary:active,
+.secondary:active,
+.ghost:active {
+  transform: scale(0.98);
 }
 
 .primary {
@@ -71,7 +97,40 @@
   color: #111;
 }
 
+.primary:hover {
+  filter: brightness(0.95);
+}
+
 .secondary {
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.22);
   color: #fff;
+  backdrop-filter: blur(6px);
+}
+
+.secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ghost {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .primary,
+  .secondary,
+  .ghost {
+    flex: 1;
+    min-width: 7rem;
+  }
 }

@@ -12,7 +12,7 @@ export function HeroBanner({ featured }: HeroBannerProps) {
     <section className={styles.hero} style={{ backgroundImage: featured.accent }}>
       <div className={styles.overlay} />
       <div className={styles.content}>
-        <p className={styles.kicker}>Featured premiere</p>
+        <p className={styles.kicker}>Featured series</p>
         <h1>{featured.name}</h1>
         <p className={styles.logline}>{featured.logline}</p>
         <p className={styles.meta}>
@@ -23,8 +23,11 @@ export function HeroBanner({ featured }: HeroBannerProps) {
           <Link to={`/watch/${featured.id}`} className={styles.primary}>
             Play
           </Link>
-          <Link to="/founding-fan" className={styles.secondary}>
-            Founding Fan perks
+          <Link to={`/watch/${featured.id}`} className={styles.secondary}>
+            More info
+          </Link>
+          <Link to="/founding-fan" className={styles.ghost}>
+            Founding Fan
           </Link>
         </div>
       </div>

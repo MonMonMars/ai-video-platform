@@ -1,5 +1,5 @@
 .page {
-  padding: 1.5rem;
+  padding: 1.25rem 1.5rem 1.5rem;
 }
 
 .header h1 {
@@ -56,17 +56,20 @@
 }
 
 .chipActive {
-  border-color: rgba(225, 29, 72, 0.55);
-  background: rgba(225, 29, 72, 0.15);
+  border-color: rgba(229, 9, 20, 0.55);
+  background: rgba(229, 9, 20, 0.15);
   color: #fff;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 1rem 0.75rem;
 }
 
-.grid a {
-  max-width: none;
+@media (max-width: 480px) {
+  .page {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

@@ -1,7 +1,9 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { BottomNav } from './components/BottomNav'
 import { TopNav } from './components/TopNav'
 import { FoundingFanPage } from './pages/FoundingFanPage'
 import { HomePage } from './pages/HomePage'
+import { LibraryPage } from './pages/LibraryPage'
 import { TrendingPage } from './pages/TrendingPage'
 import { WalletPage } from './pages/WalletPage'
 import { WatchPage } from './pages/WatchPage'
@@ -11,16 +13,18 @@ export default function App() {
   return (
     <div className={styles.shell}>
       <TopNav />
-      <main className={styles.main}>
+      <main className={styles.main} id="main-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/trending" element={<TrendingPage />} />
+          <Route path="/library" element={<LibraryPage />} />
           <Route path="/founding-fan" element={<FoundingFanPage />} />
           <Route path="/wallet" element={<WalletPage />} />
           <Route path="/watch/:id" element={<WatchPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <BottomNav />
     </div>
   )
 }

@@ -7,3 +7,10 @@
 .main {
   padding-bottom: 2rem;
 }
+
+@media (max-width: 768px) {
+  .main {
+    /* Bottom nav + reserved mini-player strip */
+    padding-bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
+  }
+}
