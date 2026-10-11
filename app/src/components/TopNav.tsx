@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useWallet } from '../context/WalletContext'
+import { NotificationBell } from './NotificationBell'
 import styles from './TopNav.module.css'
 
 type NavLinkItem = { to: string; label: string; end?: boolean }
@@ -7,6 +8,7 @@ type NavLinkItem = { to: string; label: string; end?: boolean }
 const links: NavLinkItem[] = [
   { to: '/', label: 'Home', end: true },
   { to: '/trending', label: 'Trending' },
+  { to: '/following', label: 'Following' },
   { to: '/founding-fan', label: 'Founding Fan' },
   { to: '/wallet', label: 'Wallet' },
 ]
@@ -38,6 +40,7 @@ export function TopNav() {
         ))}
       </nav>
       <div className={styles.meta}>
+        <NotificationBell />
         {isFoundingFan ? (
           <span className={styles.pill}>Founding Fan</span>
         ) : (

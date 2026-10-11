@@ -1,0 +1,92 @@
+.page {
+  padding-bottom: 2rem;
+}
+
+.hero {
+  position: relative;
+  padding: 2rem 1.5rem 2.5rem;
+  border-radius: 0 0 1rem 1rem;
+  overflow: hidden;
+}
+
+.heroInner {
+  position: relative;
+  max-width: 42rem;
+}
+
+.kicker {
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.titleRow h1 {
+  margin: 0;
+}
+
+.handle {
+  margin: 0 0 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.tagline {
+  margin: 0;
+  max-width: 36rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.catalog {
+  padding: 1.5rem;
+  max-width: 42rem;
+}
+
+.catalog h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+}
+
+.episodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.episodeLink {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.episodeLink:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.epLabel {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  min-width: 4.5rem;
+}
+
+.epName {
+  font-weight: 500;
+}

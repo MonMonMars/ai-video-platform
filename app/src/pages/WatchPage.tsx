@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { GENRE_LABELS, getTitle } from '../data/catalog'
+import { FollowButton } from '../components/FollowButton'
 import { useWallet } from '../context/WalletContext'
 import styles from './WatchPage.module.css'
 
@@ -33,8 +34,12 @@ export function WatchPage() {
         <h1>{title.name}</h1>
         <p>{title.logline}</p>
         <p className={styles.meta}>
-          {GENRE_LABELS[title.genre]} · {title.durationMinutes} min · by {title.creator}
+          {GENRE_LABELS[title.genre]} · {title.durationMinutes} min · by{' '}
+          <Link to={`/creator/${title.channelId}`}>{title.creator}</Link>
         </p>
+        <div className={styles.followRow}>
+          <FollowButton channelId={title.channelId} channelName={title.creator} />
+        </div>
         <div className={styles.tipRow}>
           <button
             type="button"
