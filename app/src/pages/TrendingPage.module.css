@@ -67,6 +67,7 @@
   gap: 1rem;
 }
 
-.grid a {
+.grid article {
   max-width: none;
+  min-width: 0;
 }

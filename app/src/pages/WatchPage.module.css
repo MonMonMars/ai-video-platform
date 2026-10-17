@@ -48,6 +48,14 @@
   font-size: 0.9rem;
 }
 
+.meta a {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.followRow {
+  margin: 0.75rem 0 0.25rem;
+}
+
 .tipRow {
   display: flex;
   align-items: center;

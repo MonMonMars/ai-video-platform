@@ -18,6 +18,7 @@ export const catalog: VideoTitle[] = [
     episodeLabel: 'S1 · E3',
     durationMinutes: 24,
     creator: 'Studio Lumen',
+    channelId: 'studio-lumen',
     trendingScoreDaily: 98,
     trendingScoreWeekly: 91,
     accent: 'linear-gradient(135deg, #1e3a8a, #7c3aed)',
@@ -30,6 +31,8 @@ export const catalog: VideoTitle[] = [
     episodeLabel: 'S1 · E5',
     durationMinutes: 19,
     creator: 'Mon Mon',
+    channelId: 'mon-mon',
+    matureContent: true,
     trendingScoreDaily: 88,
     trendingScoreWeekly: 94,
     foundingFanExclusive: true,
@@ -43,6 +46,8 @@ export const catalog: VideoTitle[] = [
     episodeLabel: 'S2 · E1',
     durationMinutes: 31,
     creator: 'North Frame',
+    channelId: 'north-frame',
+    matureContent: true,
     trendingScoreDaily: 92,
     trendingScoreWeekly: 89,
     accent: 'linear-gradient(135deg, #b45309, #ef4444)',
@@ -55,6 +60,7 @@ export const catalog: VideoTitle[] = [
     episodeLabel: 'Feature',
     durationMinutes: 52,
     creator: 'Field Notes AI',
+    channelId: 'field-notes-ai',
     trendingScoreDaily: 76,
     trendingScoreWeekly: 82,
     accent: 'linear-gradient(135deg, #047857, #14b8a6)',
@@ -67,6 +73,7 @@ export const catalog: VideoTitle[] = [
     episodeLabel: 'S1 · E8',
     durationMinutes: 22,
     creator: 'Kira Pixel',
+    channelId: 'kira-pixel',
     trendingScoreDaily: 85,
     trendingScoreWeekly: 90,
     accent: 'linear-gradient(135deg, #4338ca, #ec4899)',
@@ -79,6 +86,8 @@ export const catalog: VideoTitle[] = [
     episodeLabel: 'S1 · E6',
     durationMinutes: 27,
     creator: 'Echo Vault',
+    channelId: 'echo-vault',
+    matureContent: true,
     trendingScoreDaily: 90,
     trendingScoreWeekly: 87,
     foundingFanExclusive: true,
@@ -92,6 +101,7 @@ export const catalog: VideoTitle[] = [
     episodeLabel: 'S1 · E2',
     durationMinutes: 21,
     creator: 'Studio Lumen',
+    channelId: 'studio-lumen',
     trendingScoreDaily: 71,
     trendingScoreWeekly: 78,
     accent: 'linear-gradient(135deg, #0f766e, #2563eb)',
@@ -104,6 +114,7 @@ export const catalog: VideoTitle[] = [
     episodeLabel: 'S1 · E4',
     durationMinutes: 18,
     creator: 'Mon Mon',
+    channelId: 'mon-mon',
     trendingScoreDaily: 68,
     trendingScoreWeekly: 74,
     accent: 'linear-gradient(135deg, #ca8a04, #ea580c)',
@@ -112,4 +123,8 @@ export const catalog: VideoTitle[] = [
 
 export function getTitle(id: string): VideoTitle | undefined {
   return catalog.find((item) => item.id === id)
+}
+
+export function getTitlesByChannel(channelId: string): VideoTitle[] {
+  return catalog.filter((item) => item.channelId === channelId)
 }

@@ -16,10 +16,31 @@ export interface VideoTitle {
   episodeLabel: string
   durationMinutes: number
   creator: string
+  /** Stable creator channel slug for follows and /creator/:channelId */
+  channelId: string
   trendingScoreDaily: number
   trendingScoreWeekly: number
   foundingFanExclusive?: boolean
+  /** Hidden from follow feeds and channel lists while mature filtering is on */
+  matureContent?: boolean
   accent: string
+}
+
+export interface CreatorChannel {
+  id: string
+  name: string
+  handle: string
+  tagline: string
+  accent: string
+}
+
+/** Demo “new episode” notification for the Following feed */
+export interface CreatorDrop {
+  id: string
+  channelId: string
+  titleId: string
+  droppedAt: string
+  headline: string
 }
 
 export interface WalletEntry {
