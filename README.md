@@ -29,6 +29,32 @@ npm run build
 npm run preview
 ```
 
+Local `npm run dev` and a default `npm run build` use Vite `base` **`/`** (site root).
+
+To build the same way CI does for GitHub Pages:
+
+```bash
+cd app
+GITHUB_PAGES=true VITE_BASE_PATH=/ai-video-platform/ npm run build
+npm run preview -- --base /ai-video-platform/
+```
+
+Optional override: set **`VITE_BASE_PATH`** to any path (with or without trailing slash). When **`GITHUB_PAGES=true`**, the default base is **`/ai-video-platform/`** if `VITE_BASE_PATH` is unset.
+
+## Live demo (GitHub Pages)
+
+**Demo URL:** [https://monmonmars.github.io/ai-video-platform/](https://monmonmars.github.io/ai-video-platform/)
+
+Pushes to **`main`** run [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml), which builds `app/` and publishes `app/dist` via GitHub Actions.
+
+### One-time repo setup (Mon)
+
+1. Open **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
+3. After the first successful workflow run on `main`, the demo URL above should load the app.
+
+Routing uses **React Router `BrowserRouter`** with a **`404.html`** copy of `index.html` so deep links (e.g. `/watch/…`) work on project Pages.
+
 ## Product tour (demo)
 
 | Area | Route | What it does |
