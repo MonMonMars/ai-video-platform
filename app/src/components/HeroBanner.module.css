@@ -44,9 +44,18 @@
 }
 
 .meta {
-  margin: 0 0 1.1rem;
+  margin: 0 0 0.65rem;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
+}
+
+.creatorLink {
+  color: rgba(255, 255, 255, 0.85);
+  text-underline-offset: 2px;
+}
+
+.followRow {
+  margin-bottom: 1rem;
 }
 
 .actions {

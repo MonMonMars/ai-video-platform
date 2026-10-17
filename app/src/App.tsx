@@ -1,5 +1,8 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { BottomNav } from './components/BottomNav'
 import { TopNav } from './components/TopNav'
+import { CreatorChannelPage } from './pages/CreatorChannelPage'
+import { FollowingPage } from './pages/FollowingPage'
 import { FoundingFanPage } from './pages/FoundingFanPage'
 import { HomePage } from './pages/HomePage'
 import { TrendingPage } from './pages/TrendingPage'
@@ -15,12 +18,15 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/trending" element={<TrendingPage />} />
+          <Route path="/following" element={<FollowingPage />} />
+          <Route path="/creator/:channelId" element={<CreatorChannelPage />} />
           <Route path="/founding-fan" element={<FoundingFanPage />} />
           <Route path="/wallet" element={<WalletPage />} />
           <Route path="/watch/:id" element={<WatchPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <BottomNav />
     </div>
   )
 }
